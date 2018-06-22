@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package MODEL;
-
-/**
- *
- * @author Bruno
- */
 public class BEANUsuario {
     private int id;
     private String nome;

@@ -5,10 +5,6 @@
  */
 package MODEL;
 
-/**
- *
- * @author Bruno
- */
 public class BEANAluno {
 
     private int id;

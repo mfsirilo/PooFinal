@@ -21,7 +21,7 @@ private static DAOAluno instance;
 
     public BEANAluno find(String nome) {
         BEANAluno aluno = new BEANAluno();
-        String query = "SELECT * from <tabela_dos_alunos> WHERE <coluna do NOme> = '" + nome + "'";
+        String query = "SELECT * from <tabela_dos_alunos> WHERE <coluna do Nome> = '" + nome + "'";
         ResultSet rs = MySQLDAO.getResultSet(query);
         try {
             if (rs.next()) {
