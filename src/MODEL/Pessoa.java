@@ -5,16 +5,14 @@ import java.util.Date;
 public abstract class Pessoa {
     String nomeCompleto;
     char sexo;
-    Date DataNascimento;
     int cpf;
     String endereco;
     int telefone;
 
     /*Construtor padrão da classe abstrata*/
-    public Pessoa (String nome, char sexo,Date DataNascimento,int cpf,String endereco,int telefone){
+    public Pessoa (String nome, char sexo,int cpf,String endereco,int telefone){
         nome=this.nomeCompleto;
         sexo=this.sexo;
-        DataNascimento = this.DataNascimento;
         cpf=this.cpf;
         endereco =this.endereco;
         telefone=this.telefone;
@@ -35,14 +33,6 @@ public abstract class Pessoa {
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
-    }
-
-    public Date getDataNascimento() {
-        return DataNascimento;
-    }
-
-    public void setDataNascimento(Date DataNascimento) {
-        this.DataNascimento = DataNascimento;
     }
 
     public int getCpf() {
@@ -68,8 +58,4 @@ public abstract class Pessoa {
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
-    
-    
-    
-    
 }
