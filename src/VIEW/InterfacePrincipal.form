@@ -100,7 +100,7 @@
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jButton3" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
+                  <Component id="botnAluno" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                   <Component id="jButton6" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton7" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
@@ -117,7 +117,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="botnAluno" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -136,13 +136,16 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="botnAluno">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/IMG/user_add.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar Aluno"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botnAlunoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>

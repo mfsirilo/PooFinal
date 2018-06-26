@@ -1,8 +1,8 @@
-package AbstractClass;
+package MODEL;
 import java.util.Date;
 
 
-public abstract class Pessoa extends javax.swing.JInternalFrame {
+public abstract class Pessoa {
     String nomeCompleto;
     char sexo;
     Date DataNascimento;

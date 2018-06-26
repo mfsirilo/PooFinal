@@ -5,20 +5,20 @@
  */
 package MODEL;
 
-public class BEANAluno {
+public abstract class BEANPessoa {
 
     private int id;
     private String nome;
     
-    public BEANAluno() {
+    public BEANPessoa() {
     }
 
-    public BEANAluno(int id, String nome) {
+    public BEANPessoa(int id, String nome) {
         this.id = id;
         this.nome = nome;
     }
     
-    public BEANAluno(String nome) {
+    public BEANPessoa(String nome) {
         this.nome = nome;
     }
 

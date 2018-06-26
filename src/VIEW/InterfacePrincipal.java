@@ -19,7 +19,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem5 = new javax.swing.JMenuItem();
-        jButton1 = new javax.swing.JButton();
+        botnAluno = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -37,8 +37,13 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user_add.png"))); // NOI18N
-        jButton1.setText("Cadastrar Aluno");
+        botnAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/user_add.png"))); // NOI18N
+        botnAluno.setText("Cadastrar Aluno");
+        botnAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botnAlunoActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/group_add.png"))); // NOI18N
         jButton2.setText("Cadastrar equipe");
@@ -109,7 +114,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botnAluno, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -123,7 +128,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(botnAluno)
                         .addGap(18, 18, 18)
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
@@ -156,6 +161,17 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void botnAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botnAlunoActionPerformed
+        // TODO add your handling code here:
+        
+        TelaCadastroAluno telaCadastroAluno = new TelaCadastroAluno();
+        jDesktopPane1.add(telaCadastroAluno);
+        telaCadastroAluno.setVisible(true);
+
+        
+        
+    }//GEN-LAST:event_botnAlunoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -190,7 +206,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botnAluno;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;

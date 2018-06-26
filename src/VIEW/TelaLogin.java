@@ -1,21 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VIEW;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author marcos
- */
 public class TelaLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaLogin
-     */
     public TelaLogin() {
         initComponents();
     }
