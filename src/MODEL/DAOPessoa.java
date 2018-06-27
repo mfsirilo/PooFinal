@@ -5,16 +5,16 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DAOAluno {
-private static DAOAluno instance;
+public class DAOPessoa {
+private static DAOPessoa instance;
 
-    public DAOAluno() {
+    public DAOPessoa() {
         MySQLDAO.getConnection();
     }
 
-    public static DAOAluno getInstance() {
+    public static DAOPessoa getInstance() {
         if (instance == null) {
-            instance = new DAOAluno();
+            instance = new DAOPessoa();
         }
         return instance;
     }
@@ -30,7 +30,7 @@ private static DAOAluno instance;
 //            }
 //            rs.close();
 //        } catch (SQLException ex) {
-//            Logger.getLogger(DAOAluno.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(DAOPessoa.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //
 //        return aluno;

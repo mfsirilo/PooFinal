@@ -5,7 +5,7 @@
  */
 package VIEW;
 
-import MODEL.Pessoa;
+import MODEL.BEANPessoa;
 
 /**
  *

@@ -1,15 +1,15 @@
 package CONTROLLER;
 
 import MODEL.BEANPessoa;
-import MODEL.DAOAluno;
+import MODEL.DAOPessoa;
 
 public class Controller {
     //    Alunos
 //    public static BEANPessoa buscaAluno(String nome) {
-//        return DAOAluno.getInstance().find(nome);
+//        return DAOPessoa.getInstance().find(nome);
 //    }
 //
-//    public static void addUsuario(BEANPessoa aluno) {
-//        DAOAluno.getInstance().create(aluno);
+//    public static void criaAluno(BEANPessoa aluno) {
+//        DAOPessoa.getInstance().create(aluno);
 //    }
 }

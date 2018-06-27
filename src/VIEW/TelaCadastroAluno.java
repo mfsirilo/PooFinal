@@ -1,8 +1,10 @@
 package VIEW;
 
-import MODEL.Pessoa;
+import MODEL.BEANPessoa;
+import CONTROLLER.Controller;
 import javax.swing.JInternalFrame;
 import VIEW.InterfacePrincipal;
+import javax.swing.JOptionPane;
 
 public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
@@ -47,7 +49,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         txtTelefone = new javax.swing.JFormattedTextField();
         txtEndereco = new javax.swing.JFormattedTextField();
         btnSair = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
 
         setClosable(true);
@@ -166,10 +168,10 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCadastrarActionPerformed(evt);
             }
         });
 
@@ -193,7 +195,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btnCadastrar)
                         .addGap(18, 18, 18)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -207,7 +209,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnCadastrar)
                     .addComponent(btnLimpar)
                     .addComponent(btnSair))
                 .addContainerGap())
@@ -230,17 +232,27 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         this.fechar();
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         String nome = txtNome.getText();
         int telefone = Integer.parseInt(txtTelefone.getText());
         int cpf = Integer.parseInt(txtCpf.getText());
         String endereco = txtEndereco.getText();
         char sexo = 0;
-
-        Pessoa pessoa = new Pessoa(nome, sexo, cpf, endereco, telefone) {
-        };
-    }//GEN-LAST:event_jButton2ActionPerformed
+        //pegar o sexo
+        if(caixaSelecaoSexo.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null, "Selecione o sexo!", "Informação!!", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(caixaSelecaoSexo.getSelectedIndex()==1){
+            sexo = 'M';
+        }
+        if(caixaSelecaoSexo.getSelectedIndex()==2){
+            sexo = 'F';
+        }
+        
+        BEANPessoa aluno = new BEANPessoa(nome, sexo, dataNascimento, cpf, endereco, telefone, sexo);
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         this.limpar();
@@ -248,10 +260,10 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> caixaSelecaoSexo;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

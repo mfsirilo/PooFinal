@@ -5,7 +5,7 @@
  */
 package VIEW;
 
-import MODEL.Pessoa;
+import MODEL.BEANPessoa;
 
 /**
  *
@@ -226,8 +226,7 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
         String endereco = txtEndereco.getText();
         char sexo = 0;
 
-        Pessoa pessoa = new Pessoa(nome, sexo, cpf, endereco, telefone) {
-        };
+        BEANPessoa pessoa = new BEANPessoa(nome, sexo, dataNascimento, cpf, endereco, telefone, sexo);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void caixaSelecaoSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSelecaoSexoActionPerformed
