@@ -35,13 +35,13 @@ private static DAOPessoa instance;
 //
 //        return aluno;
 //    }
-
+//
 //    public void create(BEANPessoa pessoa) {
 //        String query = "INSERT INTO Pessoa (`Nome`) VALUES ('"  + pessoa.nomeCompleto() + "')";
 //        MySQLDAO.executeQuery(query);
 //    } 
-    
-    public void createAcademico(){
-        
-    }
+//    
+//    public void createAcademico(){
+//        
+//    }
 }

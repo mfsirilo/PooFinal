@@ -6,6 +6,11 @@
 package VIEW;
 
 import MODEL.BEANPessoa;
+import CONTROLLER.Controller;
+import javax.swing.JInternalFrame;
+import VIEW.InterfacePrincipal;
+import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -19,10 +24,10 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
     public TelaCadastroDiretor() {
         initComponents();
     }
-    
+
     /*Metodo de fechar janelas*/
-    private void fechar(){
-        if(javax.swing.JOptionPane.showConfirmDialog(null,"Deseja Fechar?","ATENÇÂO ",javax.swing.JOptionPane.YES_NO_OPTION )==0){
+    private void fechar() {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja Fechar?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
         }
     }
@@ -36,7 +41,7 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        btnCadastrarDiretor = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,14 +55,16 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
         caixaSelecaoSexo = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txtCpf = new javax.swing.JFormattedTextField();
+        jDateDataNasc = new com.toedter.calendar.JDateChooser();
+        jLabel6 = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
 
         setClosable(true);
 
-        jButton2.setText("Cadastrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarDiretor.setText("Cadastrar");
+        btnCadastrarDiretor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCadastrarDiretorActionPerformed(evt);
             }
         });
 
@@ -118,6 +125,12 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Nome completo");
 
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("Sexo");
 
         caixaSelecaoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Feminino" }));
@@ -135,6 +148,8 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel6.setText("Data de Nascimento");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -148,9 +163,13 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
                             .addComponent(jLabel1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3))
-                                .addGap(178, 178, 178)
+                                .addGap(48, 48, 48)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jDateDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(85, 85, 85)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addComponent(caixaSelecaoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -167,11 +186,13 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(caixaSelecaoSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -195,7 +216,7 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btnCadastrarDiretor)
                         .addGap(18, 18, 18)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -209,7 +230,7 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnCadastrarDiretor)
                     .addComponent(btnLimpar)
                     .addComponent(btnSair))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -218,16 +239,44 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCadastrarDiretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarDiretorActionPerformed
         // TODO add your handling code here:
         String nome = txtNome.getText();
-        int telefone = Integer.parseInt(txtTelefone.getText());
+        String telefone = txtTelefone.getText();
         int cpf = Integer.parseInt(txtCpf.getText());
         String endereco = txtEndereco.getText();
         char sexo = 0;
+        //pegar o sexo
+        if (caixaSelecaoSexo.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Selecione o sexo!", "Informação!!", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (caixaSelecaoSexo.getSelectedIndex() == 1) {
+            sexo = 'M';
+        }
+        if (caixaSelecaoSexo.getSelectedIndex() == 2) {
+            sexo = 'F';
+        }
+        //Gambira pra negoçar a Data
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/aa");
+        String dataNascimento = formato.format(jDateDataNasc.getDate());
 
-        BEANPessoa pessoa = new BEANPessoa(nome, sexo, dataNascimento, cpf, endereco, telefone, sexo);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        BEANPessoa aluno = null;
+        aluno.setNomeCompleto(nome);
+        aluno.setDataNascimento(dataNascimento);
+        aluno.setCpf(cpf);
+        aluno.setEndereco(endereco);
+        aluno.setTelefone(telefone);
+        aluno.setSexo(sexo);
+        aluno.setTipoPessoa('A');
+        try {
+            Controller.criaAluno(aluno);
+
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_btnCadastrarDiretorActionPerformed
 
     private void caixaSelecaoSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSelecaoSexoActionPerformed
         // TODO add your handling code here:
@@ -250,17 +299,23 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
         this.fechar();
     }//GEN-LAST:event_btnSairActionPerformed
 
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastrarDiretor;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> caixaSelecaoSexo;
-    private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateDataNasc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JFormattedTextField txtCpf;

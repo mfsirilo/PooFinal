@@ -8,11 +8,12 @@ public abstract class BEANPessoa {
     String dataNascimento;
     int cpf;
     String endereco;
-    int telefone;
+    String telefone;
     char tipoPessoa;
+   
     /*Construtor padrão da classe abstrata*/
-    
-    public BEANPessoa(String nomeCompleto, char sexo, String dataNascimento, int cpf, String endereco, int telefone, char tipoPessoa) {
+
+    public BEANPessoa(String nomeCompleto, char sexo, String dataNascimento, int cpf, String endereco, String telefone, char tipoPessoa) {
         this.nomeCompleto = nomeCompleto;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
@@ -21,7 +22,7 @@ public abstract class BEANPessoa {
         this.telefone = telefone;
         this.tipoPessoa = tipoPessoa;
     }
-    
+
     public String getNomeCompleto() {
         return nomeCompleto;
     }
@@ -36,6 +37,14 @@ public abstract class BEANPessoa {
 
     public void setSexo(char sexo) {
         this.sexo = sexo;
+    }
+
+    public String getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public int getCpf() {
@@ -54,20 +63,12 @@ public abstract class BEANPessoa {
         this.endereco = endereco;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
     }
 
     public char getTipoPessoa() {
@@ -77,6 +78,6 @@ public abstract class BEANPessoa {
     public void setTipoPessoa(char tipoPessoa) {
         this.tipoPessoa = tipoPessoa;
     }
-
-   
+    
+    
 }
