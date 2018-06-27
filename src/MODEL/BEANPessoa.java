@@ -5,14 +5,14 @@ import java.util.Date;
 public abstract class BEANPessoa {
     String nomeCompleto;
     char sexo;
-    Date dataNascimento;
+    String dataNascimento;
     int cpf;
     String endereco;
     int telefone;
     char tipoPessoa;
     /*Construtor padrão da classe abstrata*/
     
-    public BEANPessoa(String nomeCompleto, char sexo, Date dataNascimento, int cpf, String endereco, int telefone, char tipoPessoa) {
+    public BEANPessoa(String nomeCompleto, char sexo, String dataNascimento, int cpf, String endereco, int telefone, char tipoPessoa) {
         this.nomeCompleto = nomeCompleto;
         this.sexo = sexo;
         this.dataNascimento = dataNascimento;
@@ -20,12 +20,6 @@ public abstract class BEANPessoa {
         this.endereco = endereco;
         this.telefone = telefone;
         this.tipoPessoa = tipoPessoa;
-    }
-    
-    private void fechar(){
-        if(javax.swing.JOptionPane.showConfirmDialog(null,"Deseja Fechar?","ATENÇÂO ",javax.swing.JOptionPane.YES_NO_OPTION )==0){
-            this.dispose();
-        }
     }
     
     public String getNomeCompleto() {
@@ -68,7 +62,21 @@ public abstract class BEANPessoa {
         this.telefone = telefone;
     }
 
-    private void dispose() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getDataNascimento() {
+        return dataNascimento;
     }
+
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public char getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    public void setTipoPessoa(char tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
+    }
+
+   
 }

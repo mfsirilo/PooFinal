@@ -19,25 +19,29 @@ private static DAOPessoa instance;
         return instance;
     }
 
-//    public BEANPessoa find(String nome) {
-//        BEANPessoa aluno = new BEANPessoa();
-//        String query = "SELECT * from <tabela_dos_alunos> WHERE <coluna do Nome> = '" + nome + "'";
-//        ResultSet rs = MySQLDAO.getResultSet(query);
-//        try {
-//            if (rs.next()) {
-//                aluno.setId(rs.getInt("id"));
-//                aluno.setNome(rs.getString("nome"));
-//            }
-//            rs.close();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(DAOPessoa.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return aluno;
-//    }
-//
-//    public void create(BEANPessoa aluno) {
-//        String query = "INSERT INTO <tabela_dos_alunos> (`Nome`) VALUES ('"  + aluno.getNome() + "')";
-//        MySQLDAO.executeQuery(query);
-//    }    
+    public BEANPessoa find(String nome) {
+        BEANPessoa aluno = new BEANPessoa();
+        String query = "SELECT * from <tabela_dos_alunos> WHERE <coluna do Nome> = '" + nome + "'";
+        ResultSet rs = MySQLDAO.getResultSet(query);
+        try {
+            if (rs.next()) {
+                aluno.setId(rs.getInt("id"));
+                aluno.setNome(rs.getString("nome"));
+            }
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAOPessoa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return aluno;
+    }
+
+    public void create(BEANPessoa pessoa) {
+        String query = "INSERT INTO Pessoa (`Nome`) VALUES ('"  + pessoa.nomeCompleto() + "')";
+        MySQLDAO.executeQuery(query);
+    } 
+    
+    public void createAcademico(){
+        
+    }
 }

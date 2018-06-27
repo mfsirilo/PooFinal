@@ -5,6 +5,7 @@ import CONTROLLER.Controller;
 import javax.swing.JInternalFrame;
 import VIEW.InterfacePrincipal;
 import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
 
 public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
@@ -26,7 +27,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
             txtTelefone.setText("");
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,6 +49,8 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JFormattedTextField();
         txtEndereco = new javax.swing.JFormattedTextField();
+        jDateDataNasc = new com.toedter.calendar.JDateChooser();
+        lblDataNasc = new javax.swing.JLabel();
         btnSair = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
@@ -127,6 +130,8 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
+        lblDataNasc.setText("Data de Nascimento");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -135,17 +140,20 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtEndereco)
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEndereco)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jDateDataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,9 +163,15 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblDataNasc)
+                        .addGap(18, 18, 18)
+                        .addComponent(jDateDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -207,7 +221,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
                     .addComponent(btnLimpar)
@@ -233,7 +247,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
+
         String nome = txtNome.getText();
         int telefone = Integer.parseInt(txtTelefone.getText());
         int cpf = Integer.parseInt(txtCpf.getText());
@@ -250,8 +264,24 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         if(caixaSelecaoSexo.getSelectedIndex()==2){
             sexo = 'F';
         }
-        
-        BEANPessoa aluno = new BEANPessoa(nome, sexo, dataNascimento, cpf, endereco, telefone, sexo);
+        //Gambira pra negoçar a Data
+        SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/aa");
+        String dataNascimento = formato.format(jDateDataNasc.getDate());
+                
+        BEANPessoa aluno = null;
+        aluno.setNomeCompleto(nome);
+        aluno.setDataNascimento(dataNascimento);
+        aluno.setCpf(cpf);
+        aluno.setEndereco(endereco);
+        aluno.setTelefone(telefone);
+        aluno.setSexo(sexo);
+        aluno.setTipoPessoa('A');
+        try{
+            Controller.criaAluno(aluno);
+            
+        }catch(Exception e){
+            
+        }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
@@ -264,6 +294,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSair;
     private javax.swing.JComboBox<String> caixaSelecaoSexo;
+    private com.toedter.calendar.JDateChooser jDateDataNasc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -271,6 +302,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblDataNasc;
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JFormattedTextField txtEndereco;
     private javax.swing.JTextField txtNome;
