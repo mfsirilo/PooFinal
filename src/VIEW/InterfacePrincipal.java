@@ -22,12 +22,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         painelTelaSistema = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuSairSistema = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         menuAluno = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        menuEquipe = new javax.swing.JMenuItem();
+        menuEvento = new javax.swing.JMenuItem();
+        menuDiretor = new javax.swing.JMenuItem();
 
         jMenuItem5.setText("jMenuItem5");
 
@@ -35,18 +35,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/door_out.png"))); // NOI18N
-        jMenuItem1.setText("Sair do sistema");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuSairSistema.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, 0));
+        menuSairSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/door_out.png"))); // NOI18N
+        menuSairSistema.setText("Sair do sistema");
+        menuSairSistema.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuSairSistemaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(menuSairSistema);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Sistema");
+        jMenu2.setText("Cadastros");
 
         menuAluno.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuAluno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
@@ -58,25 +59,35 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(menuAluno);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
-        jMenuItem3.setText("Cadastro Equipe");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuEquipe.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        menuEquipe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
+        menuEquipe.setText("Cadastro Equipe");
+        menuEquipe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuEquipeActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2.add(menuEquipe);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
-        jMenuItem4.setText("Cadastro Evento");
-        jMenu2.add(jMenuItem4);
+        menuEvento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        menuEvento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
+        menuEvento.setText("Cadastro Evento");
+        menuEvento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuEventoActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuEvento);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
-        jMenuItem6.setText("Cadastro Diretor");
-        jMenu2.add(jMenuItem6);
+        menuDiretor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        menuDiretor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
+        menuDiretor.setText("Cadastro Diretor");
+        menuDiretor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuDiretorActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuDiretor);
 
         jMenuBar1.add(jMenu2);
 
@@ -103,20 +114,35 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void menuSairSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairSistemaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuSairSistemaActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    private void menuEquipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEquipeActionPerformed
+
+        TelaCadastroEquipe telaCadastro = new TelaCadastroEquipe();
+        painelTelaSistema.add(telaCadastro);
+        telaCadastro.setVisible(true);
+    }//GEN-LAST:event_menuEquipeActionPerformed
 
     private void menuAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlunoActionPerformed
         // TODO add your handling code here:
-        TelaCadastroAluno telaCadastroAluno = new TelaCadastroAluno();
-        painelTelaSistema.add(telaCadastroAluno);
-        telaCadastroAluno.setVisible(true);
+        TelaCadastroAluno telaCadastro = new TelaCadastroAluno();
+        painelTelaSistema.add(telaCadastro);
+        telaCadastro.setVisible(true);
     }//GEN-LAST:event_menuAlunoActionPerformed
+
+    private void menuEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEventoActionPerformed
+        TelaCadastroEvento telaCadastro = new TelaCadastroEvento();
+        painelTelaSistema.add(telaCadastro);
+        telaCadastro.setVisible(true);
+    }//GEN-LAST:event_menuEventoActionPerformed
+
+    private void menuDiretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDiretorActionPerformed
+        TelaCadastroDiretor telaCadastro = new TelaCadastroDiretor();
+        painelTelaSistema.add(telaCadastro);
+        telaCadastro.setVisible(true);
+    }//GEN-LAST:event_menuDiretorActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -154,12 +180,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem menuAluno;
+    private javax.swing.JMenuItem menuDiretor;
+    private javax.swing.JMenuItem menuEquipe;
+    private javax.swing.JMenuItem menuEvento;
+    private javax.swing.JMenuItem menuSairSistema;
     private javax.swing.JDesktopPane painelTelaSistema;
     // End of variables declaration//GEN-END:variables
 }

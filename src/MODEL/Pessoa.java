@@ -17,7 +17,11 @@ public abstract class Pessoa {
         endereco =this.endereco;
         telefone=this.telefone;
     }
-    
+    private void fechar(){
+        if(javax.swing.JOptionPane.showConfirmDialog(null,"Deseja Fechar?","ATENÇÂO ",javax.swing.JOptionPane.YES_NO_OPTION )==0){
+            this.dispose();
+        }
+    }
     
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -57,5 +61,9 @@ public abstract class Pessoa {
 
     public void setTelefone(int telefone) {
         this.telefone = telefone;
+    }
+
+    private void dispose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
