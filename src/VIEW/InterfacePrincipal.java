@@ -35,7 +35,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Arquivo");
 
-        menuSairSistema.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, 0));
+        menuSairSistema.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         menuSairSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/door_out.png"))); // NOI18N
         menuSairSistema.setText("Sair do sistema");
         menuSairSistema.addActionListener(new java.awt.event.ActionListener() {
