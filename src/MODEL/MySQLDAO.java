@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class MySQLDAO {
     
     public static final String DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DBURL = "jdbc:mysql://<endereco do banco>";
+    public static final String DBURL = "jdbc:mysql://localhost:3306/sistemadb";
 //    public static final String DBURL = "jdbc:mysql://localhost:3306/db_gestao_financeira";
     private static Connection con;
     
@@ -19,7 +19,7 @@ public class MySQLDAO {
         if (con == null) {
             try {
                 Class.forName(DRIVER).newInstance();
-                con = DriverManager.getConnection(DBURL, "<Usuario>", "<senha>");
+                con = DriverManager.getConnection(DBURL, "root", "rootsql");
             } catch (Exception e) {
                 System.err.println("Exception: " + e.getMessage());
             }

@@ -3,6 +3,10 @@ import java.util.Date;
 
 
 public abstract class BEANPessoa {
+
+    static void setId(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     String nomeCompleto;
     char sexo;
     String dataNascimento;
@@ -77,6 +81,10 @@ public abstract class BEANPessoa {
 
     public void setTipoPessoa(char tipoPessoa) {
         this.tipoPessoa = tipoPessoa;
+    }
+
+    void setNome(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

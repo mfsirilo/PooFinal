@@ -9,9 +9,14 @@ public class Controller {
 //    }
 
     public static void criaAluno(BEANPessoa aluno) {
-//        DAOPessoa.getInstance().create(aluno);
+        DAOPessoa.getInstance().create(aluno);
     }
     
     
     //
+
+
+    public static void criaEquipe(BEANEquipe equipe) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
