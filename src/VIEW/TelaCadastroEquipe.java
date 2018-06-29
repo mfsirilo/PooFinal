@@ -8,7 +8,11 @@ package VIEW;
 import CONTROLLER.Controller;
 import MODEL.BEANEquipe;
 import MODEL.BEANPessoa;
+import MODEL.DAOEquipe;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -34,23 +38,29 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         btnCadastrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtNome = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        academico = new javax.swing.JTextField();
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
             }
         });
 
-        jButton1.setText("jButton1");
-
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Dados Pessoais"), "Dados da equipe"));
 
         jLabel1.setText("Nome da equipe");
+
+        jLabel2.setText("Nome do Acadêmico");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -61,8 +71,11 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNome)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 443, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addGap(0, 414, Short.MAX_VALUE))
+                    .addComponent(academico))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -72,7 +85,10 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(10, 10, 10)
                 .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(academico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -85,9 +101,7 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCadastrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btnCadastrar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -96,10 +110,8 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnCadastrar)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -107,8 +119,14 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        String nome = txtNome.getText();
         
+
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+        // TODO add your handling code here:
+        String nome = txtNome.getText();
+        String nomeAcademico = academico.getText();
         //pegar o sexo
         if (txtNome.getText()== null) {
             JOptionPane.showMessageDialog(null, "Informe o nome da equipe", "Informação!!", JOptionPane.WARNING_MESSAGE);
@@ -118,19 +136,18 @@ public class TelaCadastroEquipe extends javax.swing.JInternalFrame {
         BEANEquipe equipe = null;
         equipe.setNomeEquipe(nome);
         try {
-            Controller.criaEquipe(equipe);
-
-        } catch (Exception e) {
-
+            Controller.criaEquipe(equipe, nomeAcademico);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroEquipe.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }//GEN-LAST:event_btnCadastrarActionPerformed
+    }//GEN-LAST:event_btnCadastrarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField academico;
     private javax.swing.JButton btnCadastrar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables

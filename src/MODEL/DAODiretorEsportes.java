@@ -9,9 +9,9 @@ public class DAODiretorEsportes {
         MySQLDAO.getConnection();
     }
     
-    private static DAOAluno instance = null;
-    public static DAOAluno getInstance(){
-        if(instance == null) instance = new DAOAluno();
+    private static DAODiretorEsportes instance = null;
+    public static DAODiretorEsportes getInstance(){
+        if(instance == null) instance = new DAODiretorEsportes();
         return instance;
     }
     
