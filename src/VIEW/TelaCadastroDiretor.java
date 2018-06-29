@@ -12,10 +12,21 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
 
     /*Metodo de fechar janelas*/
     private void fechar() {
-        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja Fechar?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair da "
+                + "tela de cadstro?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
         }
     }
+    
+    private void limpar() {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja mesmo limpar as informações?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+            txtNome.setText("");
+            txtEndereco.setText("");
+            txtCpf.setText("");
+            txtTelefone.setText("");
+        }
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -275,15 +286,12 @@ public class TelaCadastroDiretor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCpfActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        txtNome.setText("");
-        txtEndereco.setText("");
-        txtCpf.setText("");
-        txtTelefone.setText("");
+       limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        this.fechar();
+        fechar();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
