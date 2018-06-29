@@ -3,23 +3,23 @@ package MODEL;
 import java.util.Date;
 
 public class BEANEventos {
-    private BEANEquipe equipe;
-    private BEANDiretorEsportes diretor;
+    private int equipe;
+    private int diretor;
     private Date data;
 
-    public BEANEquipe getEquipe() {
+    public int getEquipe() {
         return equipe;
     }
 
-    public void setEquipe(BEANEquipe equipe) {
+    public void setEquipe(int equipe) {
         this.equipe = equipe;
     }
 
-    public BEANDiretorEsportes getDiretor() {
+    public int getDiretor() {
         return diretor;
     }
 
-    public void setDiretor(BEANDiretorEsportes diretor) {
+    public void setDiretor(int diretor) {
         this.diretor = diretor;
     }
 
@@ -30,6 +30,7 @@ public class BEANEventos {
     public void setData(Date data) {
         this.data = data;
     }
+
     
     
 }

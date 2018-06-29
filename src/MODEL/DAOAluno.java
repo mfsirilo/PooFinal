@@ -15,6 +15,18 @@ public class DAOAluno {
         return instance;
     }
     
+    public int getId(String nome) throws SQLException {
+        state = MySQLDAO.getConnection().prepareStatement("select * from Academico where nome like ?");
+        state.setString(1, nome);
+        rs = state.executeQuery();
+        
+        int cod = 0;
+        while (rs.next()) {
+            cod = rs.getInt("idAcademico");
+        }
+        return cod;
+    }
+    
     private PreparedStatement state = null;
     private ResultSet rs = null;
     public void create(BEANAluno aluno) throws SQLException {

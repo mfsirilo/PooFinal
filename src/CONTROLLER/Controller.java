@@ -14,8 +14,7 @@ public class Controller {
     }
     
     
-    //
-
+    
 
     public static void criaEquipe(BEANEquipe equipe, String nome) throws SQLException {
         DAOEquipe.getInstance().create(equipe, nome);

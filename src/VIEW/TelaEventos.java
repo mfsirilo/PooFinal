@@ -1,43 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package VIEW;
 
 import javax.swing.table.DefaultTableModel;
 import CONTROLLER.Controller;
+import MODEL.DAOEventos;
+import java.sql.SQLException;
 /**
  *
  * @author marcos
  */
 public class TelaEventos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form TelaEventos
-     */
-    public TelaEventos() {
+    public TelaEventos() throws SQLException {
         initComponents();
         initTable();
     }
     
     //vai fazer com que a tabela ao iniciar, puxe do banco todos os dados e coloque no lugar certo
-    public void initTable() {
+    public void initTable() throws SQLException {
         DefaultTableModel model = new DefaultTableModel();
-        Object[] rowData = new Object[4];
-        Object[] columnsName = new Object[4];
-        columnsName[0] = "Matricula";
-        columnsName[1] = "Nome";
-        columnsName[2] = "CPF";
-        columnsName[3] = "Telefone";
+        Object[] rowData = new Object[3];
+        Object[] columnsName = new Object[3];
+        columnsName[0] = "Data";
+        columnsName[1] = "Diretor";
+        columnsName[2] = "Equipe";
         
         model.setColumnIdentifiers(columnsName);
-        System.out.println(Controlador.getInstance().listAlunos().size());
-        for(int i = 0; i < Controlador.getInstance().listAlunos().size(); i++) {
-            rowData[0] = Controlador.getInstance().listAlunos().get(i).getMatricula();
-            rowData[1] = Controlador.getInstance().listAlunos().get(i).getNome();
-            rowData[2] = Controlador.getInstance().listAlunos().get(i).getCpf();
-            rowData[3] = Controlador.getInstance().listAlunos().get(i).getTelefone();
+        System.out.println(DAOEventos.getInstance().getEventos().size());
+        for(int i = 0; i < DAOEventos.getInstance().getEventos().size(); i++) {
+            rowData[0] = DAOEventos.getInstance().getEventos().get(i).getData();
+            rowData[1] = DAOEventos.getInstance().getEventos().get(i).getDiretor();
+            rowData[2] = DAOEventos.getInstance().getEventos().get(i).getEquipe();
             model.addRow(rowData);
         }
         jTable1.setModel(model);
