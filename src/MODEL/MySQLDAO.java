@@ -9,7 +9,6 @@ import java.sql.SQLException;
 public class MySQLDAO {
     public static final String DRIVER = "com.mysql.jdbc.Driver";
     public static final String DBURL = "jdbc:mysql://localhost:3306/sistemadb";
-//    public static final String DBURL = "jdbc:mysql://localhost:3306/db_gestao_financeira";
     private static Connection con;
     
 // metodo para criar a conexao com MySQL
@@ -18,8 +17,8 @@ public class MySQLDAO {
         if (con == null) {
             try {
                 Class.forName(DRIVER).newInstance();
-                //você tem que mudar pra colocar o usuario e a senha do seu banco
-                con = DriverManager.getConnection(DBURL, "root", "");
+                //Insersão dos valores de usuário e senha do banco
+                con = DriverManager.getConnection(DBURL, "admin", "root");
             } catch (Exception e) {
                 System.err.println("Exception: " + e.getMessage());
             }

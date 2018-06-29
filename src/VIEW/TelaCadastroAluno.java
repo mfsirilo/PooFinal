@@ -16,20 +16,40 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     }
 
     private void fechar() {
-        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja Fechar?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja sair da tela de cadastro?"
+                , "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             this.dispose();
         }
     }
 
     private void limpar() {
-        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja Fechar?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
+        if (javax.swing.JOptionPane.showConfirmDialog(null, "Deseja mesmo limpar as informações?", "ATENÇÂO ", javax.swing.JOptionPane.YES_NO_OPTION) == 0) {
             txtNome.setText("");
             txtEndereco.setText("");
             txtCpf.setText("");
             txtTelefone.setText("");
+            txtAnoPrevisto.setText("");
+            txtDataNascimento.setText("");
+            txtPeriodo.setText("");
+            txtEsportePraticado.setText("");
+            caixaSelecaoCurso.setSelectedIndex(0);
+            caixaSelecaoSexo.setSelectedIndex(0);
         }
     }
-    
+
+    private void limparDepoisCadastro() {
+        txtNome.setText("");
+            txtEndereco.setText("");
+            txtCpf.setText("");
+            txtTelefone.setText("");
+            txtAnoPrevisto.setText("");
+            txtDataNascimento.setText("");
+            txtPeriodo.setText("");
+            txtEsportePraticado.setText("");
+            caixaSelecaoCurso.setSelectedIndex(0);
+            caixaSelecaoSexo.setSelectedIndex(0);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -338,16 +358,16 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         // TODO add your handling code here:
-        this.fechar();
+        fechar();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
-        
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        this.limpar();
+        limpar();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void caixaSelecaoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSelecaoCursoActionPerformed
@@ -373,7 +393,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
         // TODO add your handling code here:
         String nome = txtNome.getText();
-        String nomeCurso ="";
+        String nomeCurso = "";
         String esportePraticado = txtEsportePraticado.getText();
         String telefone = txtTelefone.getText();
         String cpf = txtCpf.getText();
@@ -382,37 +402,37 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         String anoPrevisto = txtAnoPrevisto.getText();
         String periodo = txtPeriodo.getText();
         String sexo = null;
-        
+
         //pegar o sexo
-        if(caixaSelecaoSexo.getSelectedIndex()==0){
+        if (caixaSelecaoSexo.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Selecione o sexo!", "Informação!!", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        if(caixaSelecaoSexo.getSelectedIndex()==1){
+        if (caixaSelecaoSexo.getSelectedIndex() == 1) {
             sexo = "Masculino";
         }
-        if(caixaSelecaoSexo.getSelectedIndex()==2){
+        if (caixaSelecaoSexo.getSelectedIndex() == 2) {
             sexo = "Feminino";
         }
-        
+
         //escolhendo um curso
-        if(caixaSelecaoCurso.getSelectedIndex() == 0) {
+        if (caixaSelecaoCurso.getSelectedIndex() == 0) {
             nomeCurso = "None";
         } else if (caixaSelecaoCurso.getSelectedIndex() == 1) {
             nomeCurso = "Eng.Software";
         } else if (caixaSelecaoCurso.getSelectedIndex() == 2) {
-            nomeCurso = "Eng.Mecânica";     
+            nomeCurso = "Eng.Mecânica";
         } else if (caixaSelecaoCurso.getSelectedIndex() == 3) {
             nomeCurso = "Eng.Civil";
         }
-        
-        BEANAluno aluno = new BEANAluno(nomeCurso,periodo,anoPrevisto,esportePraticado,nome,sexo,dataNascimento,cpf,endereco,telefone);
+
+        BEANAluno aluno = new BEANAluno(nomeCurso, periodo, anoPrevisto, esportePraticado, nome, sexo, dataNascimento, cpf, endereco, telefone);
         try {
             DAOAluno.getInstance().create(aluno);
+            limparDepoisCadastro();
         } catch (SQLException ex) {
             Logger.getLogger(TelaCadastroAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //limpar();
     }//GEN-LAST:event_btnCadastrarMouseClicked
 
 
