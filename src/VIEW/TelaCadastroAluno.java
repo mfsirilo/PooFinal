@@ -353,24 +353,28 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         String nomeCurso ="";
         String esportePraticado = txtEsportePraticado.getText();
         String telefone = txtTelefone.getText();
-        int cpf = Integer.parseInt(txtCpf.getText());
+        String cpf = txtCpf.getText();
         String endereco = txtEndereco.getText();
         String dataNascimento = txtDataNascimento.getText();
-        char sexo = 0;
+        String anoPrevisto = txtAnoPrevisto.getText();
+        int periodo = Integer.parseInt(txtPeriodo.getText());
+        String sexo = null;
+        
         //pegar o sexo
         if(caixaSelecaoSexo.getSelectedIndex()==0){
             JOptionPane.showMessageDialog(null, "Selecione o sexo!", "Informação!!", JOptionPane.WARNING_MESSAGE);
             return;
         }
         if(caixaSelecaoSexo.getSelectedIndex()==1){
-            sexo = 'M';
+            sexo = "Masculino";
         }
         if(caixaSelecaoSexo.getSelectedIndex()==2){
-            sexo = 'F';
+            sexo = "Feminino";
         }
         
+        //escolhendo um curso
         if(caixaSelecaoCurso.getSelectedIndex() == 0) {
-            
+            nomeCurso = "None";
         } else if (caixaSelecaoCurso.getSelectedIndex() == 1) {
             nomeCurso = "Eng.Software";
         } else if (caixaSelecaoCurso.getSelectedIndex() == 2) {
@@ -378,11 +382,8 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         } else if (caixaSelecaoCurso.getSelectedIndex() == 3) {
             nomeCurso = "Eng.Civil";
         }
-        String anoPrevisto = txtAnoPrevisto.getText();
-        int periodoPrevisto = Integer.parseInt(txtPeriodo.getText());
         
-        BEANAluno aluno = new BEANAluno(nomeCurso,periodoPrevisto,anoPrevisto,esportePraticado,nome,sexo,dataNascimento,cpf,endereco,telefone,'A');
-        
+        BEANAluno aluno = new BEANAluno(nomeCurso,periodo,anoPrevisto,esportePraticado,nome,sexo,dataNascimento,cpf,endereco,telefone);
         
         try{
             Controller.criaAluno(aluno);

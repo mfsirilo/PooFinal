@@ -1,7 +1,6 @@
 package MODEL;
 
 public class BEANEquipe {
-    
    String nomeEquipe;
 
     public BEANEquipe(String nomeEquipe) {
@@ -15,6 +14,4 @@ public class BEANEquipe {
     public void setNomeEquipe(String nomeEquipe) {
         this.nomeEquipe = nomeEquipe;
     }
-   
-    
 }

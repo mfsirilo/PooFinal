@@ -1,31 +1,12 @@
 package MODEL;
-import java.util.Date;
-
 
 public abstract class BEANPessoa {
-
-    static void setId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     String nomeCompleto;
-    char sexo;
+    String sexo;
     String dataNascimento;
-    int cpf;
+    String cpf;
     String endereco;
     String telefone;
-    char tipoPessoa;
-   
-    /*Construtor padrão da classe abstrata*/
-
-    public BEANPessoa(String nomeCompleto, char sexo, String dataNascimento, int cpf, String endereco, String telefone, char tipoPessoa) {
-        this.nomeCompleto = nomeCompleto;
-        this.sexo = sexo;
-        this.dataNascimento = dataNascimento;
-        this.cpf = cpf;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.tipoPessoa = tipoPessoa;
-    }
 
     public String getNomeCompleto() {
         return nomeCompleto;
@@ -35,11 +16,11 @@ public abstract class BEANPessoa {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -51,11 +32,11 @@ public abstract class BEANPessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -75,17 +56,12 @@ public abstract class BEANPessoa {
         this.telefone = telefone;
     }
 
-    public char getTipoPessoa() {
-        return tipoPessoa;
+    public BEANPessoa(String nomeCompleto, String sexo, String dataNascimento, String cpf, String endereco, String telefone) {
+        this.nomeCompleto = nomeCompleto;
+        this.sexo = sexo;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.telefone = telefone;
     }
-
-    public void setTipoPessoa(char tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
-    }
-
-    void setNome(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

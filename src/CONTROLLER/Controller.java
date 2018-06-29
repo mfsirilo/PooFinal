@@ -1,6 +1,7 @@
 package CONTROLLER;
 
 import MODEL.*;
+import java.sql.SQLException;
 
 public class Controller {
     //    Alunos
@@ -8,8 +9,8 @@ public class Controller {
 //        return DAOPessoa.getInstance().find(nome);
 //    }
 
-    public static void criaAluno(BEANAluno aluno) {
-        DAOPessoa.getInstance().create(aluno);
+    public static void criaAluno(BEANAluno aluno) throws SQLException {
+        DAOAluno.getInstance().create(aluno);
     }
     
     
