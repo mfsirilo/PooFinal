@@ -61,6 +61,8 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         lblDataNasc1 = new javax.swing.JLabel();
         lblDataNasc2 = new javax.swing.JLabel();
         txtAnoPrevisto = new javax.swing.JFormattedTextField();
+        txtEsportePraticado = new javax.swing.JFormattedTextField();
+        lblDataNasc3 = new javax.swing.JLabel();
 
         setClosable(true);
 
@@ -213,7 +215,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Informação do curso"));
 
-        caixaSelecaoCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Eng.Software", "Eng.Mecânica", "Eng.Civil", "Medicina", "Medicina Veterinaria" }));
+        caixaSelecaoCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Eng.Software", "Eng.Mecânica", "Eng.Civil", " " }));
         caixaSelecaoCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caixaSelecaoCursoActionPerformed(evt);
@@ -236,6 +238,14 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
             }
         });
 
+        txtEsportePraticado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEsportePraticadoActionPerformed(evt);
+            }
+        });
+
+        lblDataNasc3.setText("Esporte praticado");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -255,7 +265,11 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                             .addComponent(lblDataNasc2, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(txtAnoPrevisto, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(lblDataNasc3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(txtEsportePraticado, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -263,7 +277,11 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(caixaSelecaoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblDataNasc3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtEsportePraticado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDataNasc1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblDataNasc2, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -303,7 +321,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrar)
@@ -332,9 +350,12 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
         String nome = txtNome.getText();
+        String nomeCurso ="";
+        String esportePraticado = txtEsportePraticado.getText();
         String telefone = txtTelefone.getText();
         int cpf = Integer.parseInt(txtCpf.getText());
         String endereco = txtEndereco.getText();
+        String dataNascimento = txtDataNascimento.getText();
         char sexo = 0;
         //pegar o sexo
         if(caixaSelecaoSexo.getSelectedIndex()==0){
@@ -347,16 +368,22 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         if(caixaSelecaoSexo.getSelectedIndex()==2){
             sexo = 'F';
         }
-        //Gambira pra negoçar a Data
-                
-        BEANAluno aluno = new BEANAluno(nome, ERROR, conclusao, nome, nome, sexo, endereco, cpf, endereco, telefone, sexo)
-        aluno.setNomeCompleto(nome);
-        aluno.setDataNascimento(dataNascimento);
-        aluno.setCpf(cpf);
-        aluno.setEndereco(endereco);
-        aluno.setTelefone(telefone);
-        aluno.setSexo(sexo);
-        aluno.setTipoPessoa('A');
+        
+        if(caixaSelecaoCurso.getSelectedIndex() == 0) {
+            
+        } else if (caixaSelecaoCurso.getSelectedIndex() == 1) {
+            nomeCurso = "Eng.Software";
+        } else if (caixaSelecaoCurso.getSelectedIndex() == 2) {
+            nomeCurso = "Eng.Mecânica";     
+        } else if (caixaSelecaoCurso.getSelectedIndex() == 3) {
+            nomeCurso = "Eng.Civil";
+        }
+        String anoPrevisto = txtAnoPrevisto.getText();
+        int periodoPrevisto = Integer.parseInt(txtPeriodo.getText());
+        
+        BEANAluno aluno = new BEANAluno(nomeCurso,periodoPrevisto,anoPrevisto,esportePraticado,nome,sexo,dataNascimento,cpf,endereco,telefone,'A');
+        
+        
         try{
             Controller.criaAluno(aluno);
             
@@ -390,6 +417,10 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAnoPrevistoActionPerformed
 
+    private void txtEsportePraticadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEsportePraticadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEsportePraticadoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
@@ -408,10 +439,12 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblDataNasc;
     private javax.swing.JLabel lblDataNasc1;
     private javax.swing.JLabel lblDataNasc2;
+    private javax.swing.JLabel lblDataNasc3;
     private javax.swing.JFormattedTextField txtAnoPrevisto;
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JFormattedTextField txtDataNascimento;
     private javax.swing.JFormattedTextField txtEndereco;
+    private javax.swing.JFormattedTextField txtEsportePraticado;
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtPeriodo;
     private javax.swing.JFormattedTextField txtTelefone;

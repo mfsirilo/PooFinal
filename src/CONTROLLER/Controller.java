@@ -8,7 +8,7 @@ public class Controller {
 //        return DAOPessoa.getInstance().find(nome);
 //    }
 
-    public static void criaAluno(BEANPessoa aluno) {
+    public static void criaAluno(BEANAluno aluno) {
         DAOPessoa.getInstance().create(aluno);
     }
     

@@ -1,5 +1,6 @@
 package MODEL;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -37,10 +38,11 @@ public class DAOPessoa {
         return aluno;
     }
 
-    public void create(BEANPessoa pessoa) {
-        String query = "INSERT INTO Pessoa (`Nome`) VALUES ('"  + pessoa.nomeCompleto + "')";
-        MySQLDAO.executeQuery(query);
-    } 
+    private PreparedStatement state = null;
+    private ResultSet rs = null;
+    public void create(BEANAluno aluno) {
+        
+    }
     
     public void createAcademico(){
         

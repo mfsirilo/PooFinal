@@ -14,18 +14,16 @@ import java.util.Date;
 public class BEANAluno extends BEANPessoa{
     private String curso;
     private int periodo;
-    private Date conclusao;
+    private String conclusao;
     private String esporte;
 
-    public BEANAluno(String curso, int periodo, Date conclusao, String esporte, String nomeCompleto, char sexo, String dataNascimento, int cpf, String endereco, String telefone, char tipoPessoa) {
+    public BEANAluno(String curso, int periodo, String conclusao, String esporte, String nomeCompleto, char sexo, String dataNascimento, int cpf, String endereco, String telefone, char tipoPessoa) {
         super(nomeCompleto, sexo, dataNascimento, cpf, endereco, telefone, tipoPessoa);
         this.curso = curso;
         this.periodo = periodo;
         this.conclusao = conclusao;
         this.esporte = esporte;
     }
-
-    
 
     public String getCurso() {
         return curso;
@@ -43,11 +41,11 @@ public class BEANAluno extends BEANPessoa{
         this.periodo = periodo;
     }
 
-    public Date getConclusao() {
+    public String getConclusao() {
         return conclusao;
     }
 
-    public void setConclusao(Date conclusao) {
+    public void setConclusao(String conclusao) {
         this.conclusao = conclusao;
     }
 
@@ -58,6 +56,7 @@ public class BEANAluno extends BEANPessoa{
     public void setEsporte(String esporte) {
         this.esporte = esporte;
     }
+    
     
     
 }
