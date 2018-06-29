@@ -10,7 +10,6 @@ public class Controller {
 //    }
 
     public static void criaAluno(BEANAluno aluno) throws SQLException {
-        System.out.println("foi");
         DAOAluno.getInstance().create(aluno);
     }
     
@@ -18,7 +17,7 @@ public class Controller {
     //
 
 
-    public static void criaEquipe(BEANEquipe equipe) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static void criaEquipe(BEANEquipe equipe, String nome) throws SQLException {
+        DAOEquipe.getInstance().create(equipe, nome);
     }
 }

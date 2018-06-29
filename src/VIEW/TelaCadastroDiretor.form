@@ -96,10 +96,10 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtEndereco" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtTelefone" min="-2" pref="259" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Component id="txtEndereco" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtTelefone" min="-2" pref="283" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="txtEsporte" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -129,8 +129,8 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtEsporte" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -148,13 +148,6 @@
             <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtTelefone">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="(##) #-####-####" subtype="-1" type="5"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtEndereco">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -163,6 +156,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtEsporte">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtTelefone">
         </Component>
       </SubComponents>
     </Container>
