@@ -10,6 +10,7 @@ public class Controller {
 //    }
 
     public static void criaAluno(BEANAluno aluno) throws SQLException {
+        System.out.println("foi");
         DAOAluno.getInstance().create(aluno);
     }
     

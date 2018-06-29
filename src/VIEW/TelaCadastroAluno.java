@@ -3,10 +3,11 @@ package VIEW;
 import MODEL.BEANPessoa;
 import CONTROLLER.Controller;
 import MODEL.BEANAluno;
-import javax.swing.JInternalFrame;
-import VIEW.InterfacePrincipal;
+import MODEL.DAOAluno;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
@@ -50,8 +51,8 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JFormattedTextField();
         txtEndereco = new javax.swing.JFormattedTextField();
+        txtTelefone = new javax.swing.JTextField();
         btnSair = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
@@ -147,17 +148,6 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Endereço");
 
-        try {
-            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #-####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTelefoneActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -166,14 +156,13 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEndereco)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(207, 207, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtTelefone, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEndereco, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
@@ -187,9 +176,9 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
                 .addComponent(txtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
 
         btnSair.setText("Sair");
@@ -200,6 +189,11 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         });
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
@@ -349,6 +343,35 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
 
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        this.limpar();
+    }//GEN-LAST:event_btnLimparActionPerformed
+
+    private void caixaSelecaoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSelecaoCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caixaSelecaoCursoActionPerformed
+
+    private void txtPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPeriodoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPeriodoActionPerformed
+
+    private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascimentoActionPerformed
+
+    private void txtAnoPrevistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnoPrevistoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAnoPrevistoActionPerformed
+
+    private void txtEsportePraticadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEsportePraticadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEsportePraticadoActionPerformed
+
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+        // TODO add your handling code here:
         String nome = txtNome.getText();
         String nomeCurso ="";
         String esportePraticado = txtEsportePraticado.getText();
@@ -357,7 +380,7 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         String endereco = txtEndereco.getText();
         String dataNascimento = txtDataNascimento.getText();
         String anoPrevisto = txtAnoPrevisto.getText();
-        int periodo = Integer.parseInt(txtPeriodo.getText());
+        String periodo = txtPeriodo.getText();
         String sexo = null;
         
         //pegar o sexo
@@ -384,43 +407,13 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
         }
         
         BEANAluno aluno = new BEANAluno(nomeCurso,periodo,anoPrevisto,esportePraticado,nome,sexo,dataNascimento,cpf,endereco,telefone);
-        
-        try{
-            Controller.criaAluno(aluno);
-            
-        }catch(Exception e){
-            
+        try {
+            DAOAluno.getInstance().create(aluno);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaCadastroAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
-        limpar();
-    }//GEN-LAST:event_btnCadastrarActionPerformed
-
-    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
-        this.limpar();
-    }//GEN-LAST:event_btnLimparActionPerformed
-
-    private void caixaSelecaoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaSelecaoCursoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_caixaSelecaoCursoActionPerformed
-
-    private void txtPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPeriodoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPeriodoActionPerformed
-
-    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTelefoneActionPerformed
-
-    private void txtDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataNascimentoActionPerformed
-
-    private void txtAnoPrevistoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnoPrevistoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAnoPrevistoActionPerformed
-
-    private void txtEsportePraticadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEsportePraticadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEsportePraticadoActionPerformed
+        //limpar();
+    }//GEN-LAST:event_btnCadastrarMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -448,6 +441,6 @@ public class TelaCadastroAluno extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtEsportePraticado;
     private javax.swing.JTextField txtNome;
     private javax.swing.JFormattedTextField txtPeriodo;
-    private javax.swing.JFormattedTextField txtTelefone;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

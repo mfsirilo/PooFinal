@@ -18,7 +18,8 @@ public class MySQLDAO {
         if (con == null) {
             try {
                 Class.forName(DRIVER).newInstance();
-                con = DriverManager.getConnection(DBURL, "root", "rootsql");
+                //você tem que mudar pra colocar o usuario e a senha do seu banco
+                con = DriverManager.getConnection(DBURL, "root", "");
             } catch (Exception e) {
                 System.err.println("Exception: " + e.getMessage());
             }

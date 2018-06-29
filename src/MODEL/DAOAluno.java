@@ -19,7 +19,7 @@ public class DAOAluno {
     private ResultSet rs = null;
     public void create(BEANAluno aluno) throws SQLException {
         //criando a query e separando os espaços de cada valor e depois inserindo eles cada um lugar certo
-        state = MySQLDAO.getConnection().prepareStatement("insert  into academico values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        state = MySQLDAO.getConnection().prepareStatement("insert into Academico values (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         state.setString(1, aluno.getNomeCompleto());
         state.setString(2, aluno.getSexo());
         state.setString(3, aluno.getDataNascimento());
@@ -27,11 +27,10 @@ public class DAOAluno {
         state.setString(5, aluno.getEndereco());
         state.setString(6, aluno.getTelefone());
         state.setString(7, aluno.getCurso());
-        state.setString(8, Integer.toString(aluno.getPeriodo()));
+        state.setString(8, aluno.getPeriodo());
         state.setString(9, aluno.getConclusao());
         state.setString(10, aluno.getEsporte());
         state.executeUpdate();
         MySQLDAO.terminar();
-        
     }
 }
